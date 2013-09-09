@@ -14,7 +14,7 @@ if len(sys.argv)>3:
     n0 = ((56 - (length+1)%64) % 64)
 
     pad+= '\x80' #pad 1
-    pad+= '\x00'*n0 + struct.pack('L', length*8)
+    pad+= '\x00'*n0 + struct.pack('Q', length*8)
     length+= 1 + n0 + 8
 
     print "Payload: ", (repr(pad+s))
